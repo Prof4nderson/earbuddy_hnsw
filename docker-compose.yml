@@ -1,0 +1,16 @@
+services:
+  earbuddy-db-v3:
+    image: pgvector/pgvector:pg16
+    container_name: earbuddy-db-v3
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: postgres
+    volumes:
+      - pgdata_v3:/var/lib/postgresql/data
+
+volumes:
+  pgdata_v3:
